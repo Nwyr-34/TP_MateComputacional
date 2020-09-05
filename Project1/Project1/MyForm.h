@@ -34,6 +34,8 @@ namespace Project1 {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Label^  lblTitulo;
+	protected:
 
 	private:
 		/// <summary>
@@ -48,11 +50,32 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"MyForm";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->lblTitulo = (gcnew System::Windows::Forms::Label());
+			this->SuspendLayout();
+			// 
+			// lblTitulo
+			// 
+			this->lblTitulo->AutoSize = true;
+			this->lblTitulo->Font = (gcnew System::Drawing::Font(L"Cooper Black", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblTitulo->ForeColor = System::Drawing::Color::Blue;
+			this->lblTitulo->Location = System::Drawing::Point(75, 9);
+			this->lblTitulo->Name = L"lblTitulo";
+			this->lblTitulo->Size = System::Drawing::Size(467, 27);
+			this->lblTitulo->TabIndex = 0;
+			this->lblTitulo->Text = L"FILTRADO ESPACIAL DE IMÁGENES";
+			// 
+			// MyForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(646, 341);
+			this->Controls->Add(this->lblTitulo);
+			this->Name = L"MyForm";
+			this->Text = L"MyForm";
+			this->ResumeLayout(false);
+			this->PerformLayout();
+
 		}
 #pragma endregion
 	};
