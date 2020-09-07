@@ -144,12 +144,16 @@ namespace Project1 {
 			// 
 			// dgvImagen
 			// 
+			this->dgvImagen->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->dgvImagen->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgvImagen->ColumnHeadersVisible = false;
 			this->dgvImagen->Location = System::Drawing::Point(137, 87);
 			this->dgvImagen->Name = L"dgvImagen";
 			this->dgvImagen->RowHeadersVisible = false;
-			this->dgvImagen->Size = System::Drawing::Size(355, 254);
+			this->dgvImagen->Size = System::Drawing::Size(224, 164);
+			this->dgvImagen->StandardTab = true;
 			this->dgvImagen->TabIndex = 5;
 			// 
 			// pnEntrada
@@ -321,7 +325,7 @@ private: System::Void btnCrearImagen_Click(System::Object^  sender, System::Even
 	fila = convertir->ToInt16(txtFila->Text);
 	dgvImagen->ColumnCount = columna;
 	dgvImagen->RowCount = fila;
-	
+	dgvImagen->AutoResizeColumns();
 }
 };
 }

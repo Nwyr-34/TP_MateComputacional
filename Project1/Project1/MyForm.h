@@ -155,7 +155,7 @@ namespace Project1 {
 	}
 	private: System::Void btnInicio_Click(System::Object^  sender, System::EventArgs^  e) {
 		Interfaz^entrada = gcnew Interfaz();
-		entrada->ShowDialog();
+		entrada->Show();
 		//this->Close();
 	}
 };
