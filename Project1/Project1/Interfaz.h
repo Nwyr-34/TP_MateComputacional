@@ -1,5 +1,6 @@
 #pragma once
-
+#include<iostream>
+using namespace System;
 namespace Project1 {
 
 	using namespace System;
@@ -58,12 +59,11 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^  btnOtraImagen;
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Panel^  pnIngreso;
+	private: System::Windows::Forms::Button^  btnCrearImagen;
 
 
 	private:
-		/// <summary>
-		/// Variable del diseñador necesaria.
-		/// </summary>
+		int columna, fila;
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
@@ -80,6 +80,7 @@ namespace Project1 {
 			this->lblColumnas = (gcnew System::Windows::Forms::Label());
 			this->dgvImagen = (gcnew System::Windows::Forms::DataGridView());
 			this->pnEntrada = (gcnew System::Windows::Forms::Panel());
+			this->btnCrearImagen = (gcnew System::Windows::Forms::Button());
 			this->lbltitulo2 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->btnMedia = (gcnew System::Windows::Forms::Button());
@@ -107,7 +108,7 @@ namespace Project1 {
 			// 
 			// txtColumna
 			// 
-			this->txtColumna->Location = System::Drawing::Point(331, 40);
+			this->txtColumna->Location = System::Drawing::Point(288, 40);
 			this->txtColumna->Name = L"txtColumna";
 			this->txtColumna->Size = System::Drawing::Size(96, 20);
 			this->txtColumna->TabIndex = 1;
@@ -135,7 +136,7 @@ namespace Project1 {
 			// lblColumnas
 			// 
 			this->lblColumnas->AutoSize = true;
-			this->lblColumnas->Location = System::Drawing::Point(269, 43);
+			this->lblColumnas->Location = System::Drawing::Point(226, 43);
 			this->lblColumnas->Name = L"lblColumnas";
 			this->lblColumnas->Size = System::Drawing::Size(56, 13);
 			this->lblColumnas->TabIndex = 4;
@@ -144,13 +145,16 @@ namespace Project1 {
 			// dgvImagen
 			// 
 			this->dgvImagen->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvImagen->Location = System::Drawing::Point(121, 83);
+			this->dgvImagen->ColumnHeadersVisible = false;
+			this->dgvImagen->Location = System::Drawing::Point(137, 87);
 			this->dgvImagen->Name = L"dgvImagen";
-			this->dgvImagen->Size = System::Drawing::Size(287, 254);
+			this->dgvImagen->RowHeadersVisible = false;
+			this->dgvImagen->Size = System::Drawing::Size(355, 254);
 			this->dgvImagen->TabIndex = 5;
 			// 
 			// pnEntrada
 			// 
+			this->pnEntrada->Controls->Add(this->btnCrearImagen);
 			this->pnEntrada->Controls->Add(this->dgvImagen);
 			this->pnEntrada->Controls->Add(this->lblColumnas);
 			this->pnEntrada->Controls->Add(this->lblFilas);
@@ -161,6 +165,16 @@ namespace Project1 {
 			this->pnEntrada->Name = L"pnEntrada";
 			this->pnEntrada->Size = System::Drawing::Size(510, 356);
 			this->pnEntrada->TabIndex = 6;
+			// 
+			// btnCrearImagen
+			// 
+			this->btnCrearImagen->Location = System::Drawing::Point(56, 86);
+			this->btnCrearImagen->Name = L"btnCrearImagen";
+			this->btnCrearImagen->Size = System::Drawing::Size(75, 23);
+			this->btnCrearImagen->TabIndex = 6;
+			this->btnCrearImagen->Text = L"Crear Imagen";
+			this->btnCrearImagen->UseVisualStyleBackColor = true;
+			this->btnCrearImagen->Click += gcnew System::EventHandler(this, &Interfaz::btnCrearImagen_Click);
 			// 
 			// lbltitulo2
 			// 
@@ -300,5 +314,14 @@ namespace Project1 {
 #pragma endregion
 	private: System::Void lblTitulo4_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
+private: System::Void btnCrearImagen_Click(System::Object^  sender, System::EventArgs^  e) {
+	//int columna, fila;
+	Convert^convertir;
+	columna = convertir->ToInt16(txtColumna->Text);
+	fila = convertir->ToInt16(txtFila->Text);
+	dgvImagen->ColumnCount = columna;
+	dgvImagen->RowCount = fila;
+	
+}
 };
 }
